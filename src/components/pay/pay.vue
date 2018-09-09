@@ -237,6 +237,7 @@ export default {
                   padding-bottom 10px
                 img
                   flex 1
+                  border-radius 5px
                 .name-price
                   flex 4
                   padding-left 6px

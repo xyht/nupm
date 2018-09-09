@@ -238,6 +238,8 @@ export default {
         .icon
           flex 0 0 57px
           margin-right 10px
+          img
+            border-radius 5px
         .content
           flex 1
           .name
