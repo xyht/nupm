@@ -240,6 +240,8 @@ export default {
                 .name-price
                   flex 4
                   padding-left 6px
+                  .food-name
+                    font-size 14px
                   .price
                     float right
                   .count
