@@ -279,7 +279,7 @@ export default {
                 float left
                 font-size 14px
               .remarks-inp
-                height 50px
+                height 48px
                 float right
                 border none
                 outline:none
