@@ -170,37 +170,37 @@ export default {
         background: -webkit-linear-gradient(top,#ffd262 0,#fff 100%);
         .content
           .give
-            height 120px
+            height 100px
             width 95%
             margin 0 auto
             background #fff
             .address
-              height 60px
+              height 50px
               width 90%
               margin 0 auto
               border-px(rgba(7, 17, 27, 0.1))
               input
                 border none
-                height 60px
+                height 50px
                 width 90%
                 margin-left 10px
                 font-size 18px
                 color #999999
                 outline:none
             .date-wrapper
-              height 60px
+              height 50px
               width 85%
               margin 0 auto
               .title
-                height 60px
-                line-height 60px
+                height 50px
+                line-height 50px
                 float left
                 color #000
                 font-weight 500
                 font-size 14px
               .nr
-                height 60px
-                line-height 60px
+                height 50px
+                line-height 50px
                 float right
                 color #388ded
                 font-size 14px
