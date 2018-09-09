@@ -42,9 +42,9 @@
               </div>
               <div class="Packing">
                 <div class="names">配送费</div>
-                <div class="price">￥{{seller.deliveryPrice}}</div>
+                <div class="price">￥{{seller.deliveryPrice+dataPrice}}</div>
               </div>
-              <div class="explain">
+              <div class="explain" v-show="hasDataPrice">
                 夜间配送，加价四元
               </div>
             </div>
@@ -63,7 +63,7 @@
       </div>
       <div class="foot">
         <div class="left-foot">
-          <div class="other-price">其他费用￥{{3+seller.deliveryPrice}}</div>
+          <div class="other-price">其他费用￥{{3+seller.deliveryPrice+dataPrice}}</div>
           <div class="tools">合计￥
             <span class="price-tools">{{tool}}</span>
           </div>
@@ -79,6 +79,12 @@
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll'
 export default {
+  data () {
+    return {
+      hasDataPrice: false,
+      dataPrice: 0
+    }
+  },
   props: {
     hasShowto: Boolean,
     food: {},
@@ -98,6 +104,15 @@ export default {
           click: true
         })
       })
+      var date = new Date()
+      let strDate = date.getHours()
+      if (strDate > 21 || strDate < 6) {
+        this.hasDataPrice = true
+        this.dataPrice = 4
+      } else {
+        this.hasDataPrice = false
+        this.dataPrice = 0
+      }
     }
   },
   methods: {
@@ -111,7 +126,7 @@ export default {
       for (var i = 0, length = this.food.length; i < length; i++) {
         thetool = this.food[i].price * this.food[i].count + thetool
       }
-      return thetool + 3 + this.seller.deliveryPrice
+      return thetool + 3 + this.seller.deliveryPrice + this.dataPrice
     }
   }
 }
@@ -269,23 +284,23 @@ export default {
                 text-align center
       .foot
         position absolute
-        height 60px
+        height 50px
         bottom 0
         width 100%
         display flex
         .left-foot
           flex 5
           background #333333
-          height 60px
+          height 50px
           .other-price
             float left
-            line-height 60px
+            line-height 50px
             font-size 14px
             color #fff
             margin-left 15px
           .tools
             float right
-            line-height 55px
+            line-height 46px
             margin-right 15px
             color #ffffff
             font-size 16px
@@ -294,8 +309,8 @@ export default {
         .right-foot
           flex 2
           background #ffce58
-          height 60px
-          line-height 60px
+          height 50px
+          line-height 50px
           text-align center
           font-size 18px
 </style>
